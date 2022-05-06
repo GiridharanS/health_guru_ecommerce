@@ -1,0 +1,23 @@
+<section class="products-show">
+  <article class="product-detail">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= image_tag(@product.image.url, alt: 'Image', class: 'main-img') if @product.image? %>
+      </div>
+      <div class="col-sm-4">
+        <dl class="dl-horizontal">
+          <dt>Name</dt>
+          <dd><%= @product.name %></dd>
+          <dt>Description</dt>
+          <dd><%= @product.description %></dd>
+          <dt>Price</dt>
+          <dd>₹ <%= @product.price %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-info' if current_user %>
+        <%= link_to 'Delete', product_path(@product), data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger' if current_user %>
+      </div>
+    </div>
+  </article>
+</section>

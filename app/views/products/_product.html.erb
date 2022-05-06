@@ -1,0 +1,20 @@
+<article class="product">
+  <header>
+    <%= link_to product do %>
+    <%= image_tag(product.image.url, alt: product.name, class: 'main-img') if product.image? %>
+    <h4><%= product.name %></h4>
+    <% end %>
+  </header>
+  <p class="description">
+    <%= product.description %>
+  </p>
+  <footer class="actions">
+    <%= link_to product, class: 'btn btn-default pull-right' do %>
+    Details &raquo;
+    <% end %>
+  </footer>
+
+  <aside class="price">
+    <%= product.price %>
+  </aside>
+</article>
